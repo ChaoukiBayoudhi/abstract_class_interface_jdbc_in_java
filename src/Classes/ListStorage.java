@@ -2,22 +2,24 @@ package Classes;
 
 import interfaces.Persistable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class ListStorage implements Persistable {
+    private List<Vehicle> vehicles= new ArrayList<>();
     @Override
-    public void save() {
+    public void save(Vehicle vehicle) {
+        vehicles.add(vehicle);
+    }
+
+    @Override
+    public void update(int id, Vehicle newVehicle) {
 
     }
 
     @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void delete() {
+    public void delete(int id) {
 
     }
 
