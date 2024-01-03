@@ -22,12 +22,12 @@ public class DatabaseStorage implements Persistable {
     }
 
     @Override
-    public List<Object> getAll() {
+    public List<Vehicle> getAll() {
         return null;
     }
 
     @Override
-    public Optional<Object> findById(int id) {
+    public Optional<Vehicle> findById(int id) {
         return Optional.empty();
     }
 }

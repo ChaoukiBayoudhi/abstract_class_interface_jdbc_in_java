@@ -2,6 +2,7 @@ package Classes;
 
 import interfaces.FuelConsumable;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
@@ -9,8 +10,10 @@ import lombok.*;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class MotoCycle extends Vehicle implements FuelConsumable{
-    private int nbWheels;
+     int nbWheels;
 
     @Override
     public void stop() {

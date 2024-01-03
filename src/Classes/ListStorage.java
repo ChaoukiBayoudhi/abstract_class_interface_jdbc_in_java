@@ -57,10 +57,11 @@ public class ListStorage implements Persistable {
 
     @Override
     public void delete(int id) {
-        Optional<Object> result= findById(id);
         try{
+            Optional<Vehicle> result= findById(id);
+
             if(result.isEmpty())
-                throw new Exception("Vehicle not found");
+                throw new Exception("Vehicle with id = "+id+" not found");
             vehicles.remove(result.get());
             System.out.println("Vehicle deleted successfully");
         } catch (Exception e) {
@@ -72,7 +73,7 @@ public class ListStorage implements Persistable {
     }
 
     @Override
-    public List<Object> getAll() {
+    public List<Vehicle> getAll() {
 
         try
         {
@@ -82,12 +83,13 @@ public class ListStorage implements Persistable {
         {
             e.printStackTrace();
         }
-        return (List<Object>)(List<?>)vehicles;
+        //return (List<Object>)(List<?>)vehicles;
+        return vehicles;
 
     }
 
     @Override
-    public Optional<Object> findById(int id) {
+    public Optional<Vehicle> findById(int id) {
         Optional<Vehicle> result= Optional.empty();
         try {
             //find the vehicle by id
@@ -95,12 +97,13 @@ public class ListStorage implements Persistable {
                     .filter(v -> v.getId() == id)
                     .findFirst();//the id is unique
             if (result.isEmpty())
-                throw new Exception("Vehicle not found");
+                throw new Exception("Vehicle with id = \"+id+\" not found");
 
         }catch(Exception e)
         {
             e.printStackTrace();
         }
-        return Optional.of(result);
+        //return Optional.of(result);
+        return result;
     }
 }

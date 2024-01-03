@@ -9,6 +9,7 @@ import lombok.*;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Car extends Vehicle implements FuelConsumable {
     private int nbDoors;
     private int nbChairs;
